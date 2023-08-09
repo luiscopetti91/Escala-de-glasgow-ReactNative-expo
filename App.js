@@ -43,11 +43,12 @@ const App = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Escala de Coma de Glasgow</Text>
-      <View style={styles.section}>
+      <View style={styles.pickerSection}>
         <Text style={styles.label}>Apertura Ocular:</Text>
         <Picker
           selectedValue={aperturaOcular}
           onValueChange={(itemValue) => setAperturaOcular(itemValue)}
+          style={styles.picker}
         >
           {opcionesAperturaOcular.map((opcion) => (
             <Picker.Item
@@ -58,11 +59,12 @@ const App = () => {
           ))}
         </Picker>
       </View>
-      <View style={styles.section}>
+      <View style={styles.pickerSection}>
         <Text style={styles.label}>Respuesta Verbal:</Text>
         <Picker
           selectedValue={respuestaVerbal}
           onValueChange={(itemValue) => setRespuestaVerbal(itemValue)}
+          style={styles.picker}
         >
           {opcionesRespuestaVerbal.map((opcion) => (
             <Picker.Item
@@ -73,11 +75,12 @@ const App = () => {
           ))}
         </Picker>
       </View>
-      <View style={styles.section}>
+      <View style={styles.pickerSection}>
         <Text style={styles.label}>Respuesta Motora:</Text>
         <Picker
           selectedValue={respuestaMotora}
           onValueChange={(itemValue) => setRespuestaMotora(itemValue)}
+          style={styles.picker}
         >
           {opcionesRespuestaMotora.map((opcion) => (
             <Picker.Item
@@ -88,8 +91,12 @@ const App = () => {
           ))}
         </Picker>
       </View>
-      <View style={styles.section}>
-        <Button title="Calcular Puntuación" onPress={calcularPuntuacionTotal} />
+      <View style={styles.buttonSection}>
+        <Button
+          title="Calcular Puntuación"
+          onPress={calcularPuntuacionTotal}
+          color="#007bff"
+        />
       </View>
       <Text style={styles.result}>Puntuación Total: {puntuacionTotal}</Text>
     </View>
@@ -101,24 +108,37 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
+    backgroundColor: '#f8f9fa',
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
     marginBottom: 20,
+    color: '#343a40',
   },
-  section: {
+  pickerSection: {
     marginBottom: 15,
+    width: '80%',
+    borderBottomWidth: 1,
+    borderBottomColor: '#ced4da',
   },
   label: {
     fontSize: 18,
     marginBottom: 5,
+    color: '#343a40',
+  },
+  picker: {
+    color: '#343a40',
+  },
+  buttonSection: {
+    marginTop: 20,
+    width: '80%',
   },
   result: {
     marginTop: 20,
     fontSize: 18,
     fontWeight: 'bold',
+    color: '#343a40',
   },
 });
 
